@@ -43,4 +43,9 @@ public class CourseController {
         return ResponseEntity.ok("Teacher assigned");
     }
 
+    @GetMapping("/getTeacher/{id}")
+    public ResponseEntity getTeacher(@PathVariable Integer id) {
+        return ResponseEntity.ok(courseService.getCourseById(id));
+    }
+
 }
