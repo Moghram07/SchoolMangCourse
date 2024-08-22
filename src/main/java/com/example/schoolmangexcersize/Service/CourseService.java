@@ -48,4 +48,13 @@ public class CourseService {
         courseRepository.save(c);
     }
 
+        public String getCourseById(Integer id) {
+        Course c = courseRepository.findCourseById(id);
+        if(c == null || c.getTeacher() == null) {
+            throw new RuntimeException("Course not found");
+        }
+
+        return c.getTeacher().getName();
+    }
+
 }
